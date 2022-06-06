@@ -16,11 +16,11 @@ namespace BookDB.Models
 
         public string DatabasePath { get; }
 
-        public DatabaseContext() {
-            var folderPath = Environment.CurrentDirectory;
-            this.DatabasePath = System.IO.Path.Join(folderPath, "BookDB.db");
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) {
+            this.DatabasePath = System.IO.Path.Join(Environment.CurrentDirectory, "BookDB.db");
         }
-
+        
+        // Aceasta functie este necesara pentru a permite initializarea unui DatabaseContext si prin metoda clasica folosind = new.
         protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source={this.DatabasePath}");
     }
 }

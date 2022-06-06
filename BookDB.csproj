@@ -18,12 +18,30 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\authors\author.ts" />
+    <None Remove="ClientApp\src\app\authors\authors.component.ts" />
+    <None Remove="ClientApp\src\app\authors\authors.service.ts" />
+    <None Remove="ClientApp\src\app\books\books.component.ts" />
+    <None Remove="ClientApp\src\app\domains\domains.component.ts" />
+    <None Remove="ClientApp\src\app\genres\genres.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\authors\author.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\authors\authors.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\authors\authors.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\books\books.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\domains\domains.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\genres\genres.component.ts" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

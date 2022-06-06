@@ -1,10 +1,13 @@
 using BookDB.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+// Adaugam DatabaseContext ca serviciu in service provider-ul din ASP.
+builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite($"Data Source={System.IO.Path.Join(Environment.CurrentDirectory, "BookDB.db")}"));
 
 var app = builder.Build();
 
@@ -19,16 +22,17 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
+    pattern: "{controller}/{action=GetAll}/{id?}");
 
-app.MapFallbackToFile("index.html"); ;
+app.MapFallbackToFile("index.html"); 
 
 /** DB Testing Code. */
 
-using var db = new DatabaseContext();
+/*
+
+using var db = new DatabaseContext(new DbContextOptionsBuilder<DatabaseContext>().Options);
 
 Console.WriteLine($"Database Path: {db.DatabasePath}");
 
@@ -43,6 +47,8 @@ var authors = db.Authors;
 for(int i = 0; i < authors.ToArray().Length; ++i) {
     Console.WriteLine($"Author { i + 1 }: { authors.ToArray().ElementAt(i).AuthorFirstName } {authors.ToArray().ElementAt(i).AuthorLastName}");
 }
+
+/*
 
 Console.WriteLine("Updating first author to 4...");
 var author = authors.First();
@@ -67,6 +73,8 @@ for (int i = 0; i < authors.ToArray().Length; ++i) {
 }
 
 db.Dispose();
+
+*/
 
 /** End DB Testing Code. */
 
