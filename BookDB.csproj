@@ -21,9 +21,23 @@
     <None Remove="ClientApp\src\app\authors\author.ts" />
     <None Remove="ClientApp\src\app\authors\authors.component.ts" />
     <None Remove="ClientApp\src\app\authors\authors.service.ts" />
+    <None Remove="ClientApp\src\app\books\book.ts" />
     <None Remove="ClientApp\src\app\books\books.component.ts" />
+    <None Remove="ClientApp\src\app\books\books.service.ts" />
+    <None Remove="ClientApp\src\app\bookTypes\bookType.ts" />
+    <None Remove="ClientApp\src\app\bookTypes\bookTypes.service.ts" />
+    <None Remove="ClientApp\src\app\contacts\contact.ts" />
+    <None Remove="ClientApp\src\app\contacts\contacts.service.ts" />
+    <None Remove="ClientApp\src\app\domains\domain.ts" />
     <None Remove="ClientApp\src\app\domains\domains.component.ts" />
+    <None Remove="ClientApp\src\app\domains\domains.service.ts" />
+    <None Remove="ClientApp\src\app\genres\genre.ts" />
     <None Remove="ClientApp\src\app\genres\genres.component.ts" />
+    <None Remove="ClientApp\src\app\genres\genres.service.ts" />
+    <None Remove="ClientApp\src\app\locations\location.ts" />
+    <None Remove="ClientApp\src\app\locations\locations.service.ts" />
+    <None Remove="ClientApp\src\app\publishers\publisher.ts" />
+    <None Remove="ClientApp\src\app\publishers\publishers.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,9 +53,23 @@
     <TypeScriptCompile Include="ClientApp\src\app\authors\author.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\authors\authors.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\authors\authors.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\books\book.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\books\books.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\books\books.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\bookTypes\bookType.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\bookTypes\bookTypes.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\contacts\contact.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\contacts\contacts.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\domains\domain.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\domains\domains.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\domains\domains.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\genres\genre.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\genres\genres.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\genres\genres.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\locations\location.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\locations\locations.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\publishers\publisher.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\publishers\publishers.service.ts" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

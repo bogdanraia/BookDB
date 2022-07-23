@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { IAuthor } from './author';
 import { AuthorsService } from './authors.service';
 
@@ -16,7 +17,6 @@ export class AuthorsComponent implements OnInit {
     this._authorService.getAuthors().subscribe(
       (result) => {
         this.authors = result;
-        console.log(this.authors);
       },
       (error) => {
         console.error(error);

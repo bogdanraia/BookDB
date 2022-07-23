@@ -11,7 +11,7 @@ namespace BookDB.Controllers {
 
         [HttpGet]
         public IEnumerable<Author> GetAll() {
-            return _context.Authors;
+            return _context.Authors; 
         }
     }
 }

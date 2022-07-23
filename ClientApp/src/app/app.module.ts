@@ -15,6 +15,13 @@ import { GenresComponent } from './genres/genres.component';
 import { DomainsComponent } from './domains/domains.component';
 
 import { AuthorsService } from './authors/authors.service';
+import { BooksService } from './books/books.service';
+import { BookTypesService } from './bookTypes/bookTypes.service';
+import { ContactsService } from './contacts/contacts.service';
+import { DomainsService } from './domains/domains.service';
+import { GenresService } from './genres/genres.service';
+import { LocationsService } from './locations/locations.service';
+import { PublishersService } from './publishers/publishers.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +50,14 @@ import { AuthorsService } from './authors/authors.service';
     ])
   ],
   providers: [
-    AuthorsService
+    AuthorsService,
+    BooksService,
+    BookTypesService,
+    ContactsService,
+    DomainsService,
+    GenresService,
+    LocationsService,
+    PublishersService
   ],
   bootstrap: [AppComponent]
 })

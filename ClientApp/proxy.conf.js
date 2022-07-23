@@ -7,7 +7,14 @@ const PROXY_CONFIG = [
   {
     context: [
       "/weatherforecast",
-      "/author"
+      "/author",
+      "/book",
+      "/bookType",
+      "/contact",
+      "/domain",
+      "/genre",
+      "/location",
+      "/publisher"
    ],
     target: target,
     secure: false,
@@ -15,6 +22,6 @@ const PROXY_CONFIG = [
       Connection: 'Keep-Alive'
     }
   }
-]
+] 
 
 module.exports = PROXY_CONFIG;

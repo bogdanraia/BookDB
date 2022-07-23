@@ -1,7 +1,7 @@
 export interface IAuthor {
-  id: number;
-  firstName: string;
-  lastName: string;
+  authorId: number;
+  authorFirstName: string;
+  authorLastName: string;
   books: [];
   contact: [];
 }
