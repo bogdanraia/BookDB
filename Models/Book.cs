@@ -11,7 +11,5 @@
         public Publisher Publisher { get; set; }
 
         public ICollection<Genre> Genres { get; set; }
-        public ICollection<Domain> Domains { get; set; }
-        public ICollection<BookType> BookTypes { get; set; }
     }
 }

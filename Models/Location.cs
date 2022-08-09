@@ -4,6 +4,5 @@
         public string City { get; set; }
 
         public int PublisherId { get; set; }
-        public Publisher Publisher { get; set; }
     }
 }
