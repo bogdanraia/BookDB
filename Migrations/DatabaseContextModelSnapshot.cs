@@ -24,7 +24,6 @@ namespace BookDB.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("AuthorName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("BirthDate")
@@ -41,13 +40,13 @@ namespace BookDB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AuthorId")
+                    b.Property<int?>("AuthorId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("PageCount")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("PublisherId")
+                    b.Property<int?>("PublisherId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
@@ -103,7 +102,6 @@ namespace BookDB.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("PublisherId");
@@ -130,15 +128,11 @@ namespace BookDB.Migrations
                 {
                     b.HasOne("BookDB.Models.Author", "Author")
                         .WithMany("Books")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AuthorId");
 
                     b.HasOne("BookDB.Models.Publisher", "Publisher")
                         .WithMany("Books")
-                        .HasForeignKey("PublisherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PublisherId");
 
                     b.Navigation("Author");
 

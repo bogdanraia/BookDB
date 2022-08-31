@@ -1,0 +1,17 @@
+ <form [formGroup] ="Form" (ngSubmit)="onSubmit()" novalidate>
+
+    <label for="title">Title: </label>
+    <input id="title" type="text" formControlName="title">
+
+    <label for="nrPages">Number of pages: </label>
+    <input id="nrPages" type="text" formControlName="nrPages">
+
+    <label for="author">Author: </label>
+    <input id="author" type="text" formControlName="author">
+
+    <label for="" publisher>Publisher: </label>
+    <input id="publisher" type="text" formControlName="publisher">
+
+    <button type="submit" style="width: 50%;" class="btn btn-dark">Add new book!</button>
+
+ </form>

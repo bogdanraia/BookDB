@@ -1,13 +1,30 @@
 using BookDB.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
+var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 // Add services to the container.
+
+builder.Services.AddCors(options => {
+    options.AddPolicy(name: myAllowSpecificOrigins,
+        builder => {
+            builder.WithOrigins("http://localhost:7211")
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+        });
+});
 
 builder.Services.AddControllersWithViews();
 // Adaugam DatabaseContext ca serviciu in service provider-ul din ASP.
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite($"Data Source={System.IO.Path.Join(Environment.CurrentDirectory, "BookDB.db")}"));
+
+builder.Services.AddControllersWithViews()
+    .AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
+
 
 var app = builder.Build();
 
@@ -30,26 +47,23 @@ app.MapFallbackToFile("index.html");
 
 /** DB Testing Code. */
 
-
 using var db = new DatabaseContext(new DbContextOptionsBuilder<DatabaseContext>().Options);
 
 Console.WriteLine($"Database Path: {db.DatabasePath}");
 
 // db.Database.ExecuteSqlRaw("delete from Authors");
 
-Console.WriteLine("Inserting 3 new authors...");
+/* Console.WriteLine("Inserting 3 new authors...");
 db.Add(new Author { AuthorName = "FirstName1", BirthDate = new DateTime(1998, 1, 8)});
 db.Add(new Author { AuthorName = "FirstName2", BirthDate = new DateTime(1999, 1, 8) });
 db.Add(new Author { AuthorName = "FirstName3", BirthDate = new DateTime(2000, 1, 8) });
-db.SaveChanges();
-
+db.SaveChanges(); */
 
 Console.WriteLine("Reading all authors...");
 var authors = db.Authors;
 for(int i = 0; i < authors.ToArray().Length; ++i) {
     Console.WriteLine($"Author { i + 1 }: { authors.ToArray().ElementAt(i).AuthorName} { authors.ToArray().ElementAt(i).BirthDate} ");
 }
-
 
 Console.WriteLine("Updating first author to 4...");
 var author = authors.First();
@@ -62,9 +76,9 @@ for (int i = 0; i < authors.ToArray().Length; ++i) {
     Console.WriteLine($"Author {i + 1}: {authors.ToArray().ElementAt(i).AuthorName} {authors.ToArray().ElementAt(i).BirthDate} ");
 }
 
-Console.WriteLine("Deleting all authors...");
+/*Console.WriteLine("Deleting all authors...");
 db.Authors.RemoveRange(authors);
-db.SaveChanges();
+db.SaveChanges();*/
 
 Console.WriteLine("Reading all authors one last time...");
 authors = db.Authors;
@@ -73,7 +87,6 @@ for (int i = 0; i < authors.ToArray().Length; ++i) {
 }
 
 db.Dispose();
-
 
 /** End DB Testing Code. */
 

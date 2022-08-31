@@ -7,7 +7,8 @@
 <body>
   <div class="container-fluid d-flex" style="flex-direction: column; align-items: center; row-gap: 1rem;">
     <button style="width: 50%;" type="button" class="btn btn-light">+</button>
-    <button style="width: 50%;" *ngFor="let book of books" type="button" class="btn btn-dark">{{ book.title }}</button>
+    <div *ngFor="let book of books" > <a [title] = "book.title" [routerLink] = "['/book', book.bookId]">{{ book.title | lowercase }}</a></div>
   </div>
+  <reactiveform></reactiveform>
 </body>
 </html>

@@ -9,9 +9,7 @@ const PROXY_CONFIG = [
       "/weatherforecast",
       "/author",
       "/book",
-      "/bookType",
-      "/contact",
-      "/domain",
+      "/book/add",
       "/genre",
       "/location",
       "/publisher"
